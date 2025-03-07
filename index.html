@@ -52,12 +52,20 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        textarea {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            display: none;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h3>Enter Car Number</h3>
+        <h3>Welcome Please enter last four digits of car Number</h3>
         <input type="text" id="carNumber" placeholder="Enter last 4 digits" maxlength="4">
         <button onclick="validateCar()">Proceed</button>
 
@@ -88,25 +96,55 @@
                 <img src="data:image/jpeg;base64,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ICAgICAgIDEzMjkuNTg3OQogICAgICBdLAogICAgICAia2V5X3RyYW5zZm9ybV90YXJnZXRfd2lkdGgiOiBbCiAgICAgICAgOTQsCiAgICAgICAgOTQKICAgICAgXSwKICAgICAgImdsb2JhbF9rZXlfZXhlY3V0ZV9jb21tYW5kIjogImNtZF90cmFuc2Zvcm1fZHJhdyIsCiAgICAgICJyb3RhdGVPcmllbnRhdGlvbiI6IDAsCiAgICAgICJrZXlfdHJhbnNmb3JtX3RhcmdldF9oZWlnaHQiOiBbCiAgICAgICAgOTksCiAgICAgICAgOTkKICAgICAgXSwKICAgICAgImlzSG9yaXpvbnRhbE1pcnJvciI6IGZhbHNlLAogICAgICAiZGlzcGxheVJlY3QiOiBbCiAgICAgICAgMTE0LjAsCiAgICAgICAgMjE2LjAsCiAgICAgICAgOTY2LjAsCiAgICAgICAgMTU0Mi4wCiAgICAgIF0sCiAgICAgICJyb3RhdGVBbmdsZSI6IDAuMCwKICAgICAgImtleV90cmFuc2Zvcm1fbWF0cml4IjogWwogICAgICAgIDkuMDcwNzAzLAogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICA5LjA3MDcwMywKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgOS4wNzA3MDMsCiAgICAgICAgMC4wLAogICAgICAgIDExMy45OTk1NCwKICAgICAgICAtNDM2NC4yNjMsCiAgICAgICAgMC4wLAogICAgICAgIDEuMCwKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgMC4wLAogICAgICAgIDAuMCwKICAgICAgICAwLjAKICAgICAgXSwKICAgICAgInJvdGF0ZV9heGlzIjogWwogICAgICAgIDAuMCwKICAgICAgICAwLjAsCiAgICAgICAgMS4wLAogICAgICAgIDEuMAogICAgICBdCiAgICB9LAogICAgInZlcnNpb24iOiAwLjAKICB9LAogIHsKICAgICJlZmZlY3ROYW1lIjogIkFkanVzdEVmZmVjdCIsCiAgICAiYXJndW1lbnRzIjogewogICAgICAia2V5X2JyaWdodG5lc3MiOiAwLjI3OTk5OTk3LAogICAgICAia2V5X3NhdHVyYXRpb25fc3dpdGNoIjogdHJ1ZSwKICAgICAgImtleV9oaWdobGlnaHQiOiAtMC40MDg3Mzk0NSwKICAgICAgImtleV9kZW5vaXNlIjogMS4wLAogICAgICAia2V5X2JyaWxsaWFuY2UiOiAwLjM0OTk5OTIsCiAgICAgICJrZXlfdmlicmFuY2UiOiAwLjEwMDE0MTU1LAogICAgICAia2V5X3ZpZ25ldHRlX3N3aXRjaCI6IHRydWUsCiAgICAgICJrZXlfc2hhcnBlbiI6IDAuMCwKICAgICAgImtleV92aWduZXR0ZSI6IDAuMCwKICAgICAgImtleV9rZWVwX2NhY2hlIjogdHJ1ZSwKICAgICAgIm1laWNhbV9saWNlbmNlX2ZpbGVfcGF0aCI6ICJhc3NldHM6LzQ5MjktODM3LTQ3YzZkYWEwLTNjYzAtNGJlZS1hMWRmLTQ2ZjczZjU1ODIyYy5saWMiLAogICAgICAia2V5X3NoYXJwZW5fc3dpdGNoIjogdHJ1ZSwKICAgICAgImtleV9jb250cmFzdF9zd2l0Y2giOiB0cnVlLAogICAgICAia2V5X2F1dG9fc3dpdGNoIjogZmFsc2UsCiAgICAgICJrZXlfZXhwb3N1cmUiOiAtMC4wNSwKICAgICAgImtleV9ibGFja3BvaW50IjogMC42OTAwMDAwNiwKICAgICAgImtleV90ZW1wZXJhdHVyZV9zd2l0Y2giOiB0cnVlLAogICAgICAia2V5X3NoYWRvd19zd2l0Y2giOiB0cnVlLAogICAgICAic2hvdWxkX2NhY2hlZF9mb3JfdXNlciI6IHRydWUsCiAgICAgICJrZXlfYXV0byI6IDAuMCwKICAgICAgImtleV90aW50IjogMC40NzAwMDAwMywKICAgICAgImtleV9zaGFkb3ciOiAwLjU1OTk5OTk0LAogICAgICAia2V5X3RpbnRfc3dpdGNoIjogdHJ1ZSwKICAgICAgImtleV9kZWZpbml0aW9uIjogMC4wLAogICAgICAiZ2xvYmFsX2tleV9leGVjdXRlX2NvbW1hbmQiOiAiY21kX25vcm1hbCIsCiAgICAgICJrZXlfYnJpbGxpYW5jZV9zd2l0Y2giOiB0cnVlLAogICAgICAia2V5X2JsYWNrcG9pbnRfc3dpdGNoIjogdHJ1ZSwKICAgICAgImtleV92aWJyYW5jZV9zd2l0Y2giOiB0cnVlLAogICAgICAia2V5X2JyaWdodG5lc3Nfc3dpdGNoIjogdHJ1ZSwKICAgICAgImtleV9jb250cmFzdCI6IDAuNzIsCiAgICAgICJrZXlfZXhwb3N1cmVfc3dpdGNoIjogdHJ1ZSwKICAgICAgImtleV90ZW1wZXJhdHVyZSI6IDAuMTQ5OTk5OTgsCiAgICAgICJrZXlfc2F0dXJhdGlvbiI6IDAuMTAwNTAwMDEsCiAgICAgICJrZXlfZGVub2lzZV9zd2l0Y2giOiB0cnVlLAogICAgICAia2V5X2hpZ2hsaWdodF9zd2l0Y2giOiB0cnVlLAogICAgICAia2V5X2RlZmluaXRpb25fc3dpdGNoIjogdHJ1ZQogICAgfSwKICAgICJ2ZXJzaW9uIjogMC4wCiAgfQpdAHsib3JpZ2luYWxGaWxlU3ViUGF0aCI6Ii9lZGl0L3BhcmFtZXRyaWMvZmlsZXMvb3JpZ2luXzE3NDEzMjc0MzA0OTkuanBnIiwiY29udGVudEVkaXRGaWxlU3ViUGF0aCI6Ii9lZGl0L3BhcmFtZXRyaWMvZmlsZXMvY29udGVudF9lZGl0XzE3NDEzMjc0MzA1MTUuanBnIiwiaGFzQ29udGVudEVkaXQiOmZhbHNlfQDNzIw/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbeyJsZW5ndGgiOjI3OTQsIm5hbWUiOiJlZGl0LnByb2plY3QuY29uZmlnIiwib2Zmc2V0IjozMDIwLCJ2ZXJzaW9uIjoxfSx7Imxlbmd0aCI6MTc4LCJuYW1lIjoiZWRpdC5wcm9qZWN0LmVudGl0eSIsIm9mZnNldCI6MjI2LCJ2ZXJzaW9uIjoxfSx7Imxlbmd0aCI6MSwibmFtZSI6ImltYWdlLnF1YWxpdHkuZW5oYW5jZWQiLCJvZmZzZXQiOjEsInZlcnNpb24iOjF9LHsibGVuZ3RoIjoxLCJuYW1lIjoicHJpdmF0ZS5lbXB0eXNwYWNlIiwib2Zmc2V0IjozMDIxLCJ2ZXJzaW9uIjoxfSx7Imxlbmd0aCI6NDcsIm5hbWUiOiJ3YXRlcm1hcmsuZGV2aWNlIiwib2Zmc2V0Ijo0OCwidmVyc2lvbiI6MX1dAHd0bWtdAQAA" alt="Alert">
                 Something wrong with this car
             </div>
-        </div>
+            <textarea id="otherText" maxlength="100" placeholder="Describe the issue (max 100 characters)"></textarea>
+        <button onclick="sendOtherAlert()" id="sendOtherBtn" style="display: none;">Send</button>
+    </div>
+    
+    <div class="container hidden" id="thankYou">
+        <h3>Thank you! Owner is notified</h3>
+        <p>The car owner has been notified.</p>
     </div>
 
     <script>
-        document.getElementById("carNumber").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
-                validateCar();
-            }
-        });
-
         function validateCar() {
-            let inputNumber = document.getElementById("carNumber").value;
-            if (inputNumber === "4800") {
+            let carNum = document.getElementById("carNumber").value;
+            if (carNum === "4800") {
+                document.getElementById("welcome").classList.add("hidden");
                 document.getElementById("options").classList.remove("hidden");
             } else {
-                alert("Incorrect Car Number!");
+                alert("Invalid car number.");
             }
         }
-    </script>
 
+        function sendAlert(issue) {
+            fetch("https://api.telegram.org/bot7750264209:AAFvm-wRjIMVbZOdl3hkLxpro8aOEYAUv1s/sendMessage", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: "732675509",
+                    text: `🚨 Alert: ${issue} for Car HR12AR4800`
+                })
+            }).then(response => response.json())
+            .then(data => {
+                document.getElementById("options").classList.add("hidden");
+                document.getElementById("thankYou").classList.remove("hidden");
+            })
+            .catch(error => console.error("Error sending alert:", error));
+        }
+
+        function showOtherInput() {
+            document.getElementById("otherText").style.display = "block";
+            document.getElementById("sendOtherBtn").style.display = "block";
+        }
+
+        function sendOtherAlert() {
+            let otherIssue = document.getElementById("otherText").value;
+            if (otherIssue.trim() === "") {
+                alert("Please enter the issue description.");
+                return;
+            }
+            sendAlert(`Other Issue: ${otherIssue}`);
+        }
+    </script>
 </body>
 </html>
