@@ -117,14 +117,14 @@
         }
 
         function sendAlert(issue) {
-            fetch("https://api.telegram.org/bot7750264209:AAFvm-wRjIMVbZOdl3hkLxpro8aOEYAUv1s/sendMessage", {
+            fetch("https://api.telegram.org/bot7750264209:AAFvm-wRjIMVbZOdl3hkLxpro8aOEYAU/sendMessage", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     chat_id: "732675509",
                     text: `🚨 Alert: ${issue} for Car HR12AR4800`
                 })
-            }).then(response => response.json())
+           }).then(response => response.json())
             .then(data => {
                 document.getElementById("options").classList.add("hidden");
                 document.getElementById("thankYou").classList.remove("hidden");
